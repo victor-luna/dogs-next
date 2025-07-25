@@ -24,7 +24,6 @@ export default async function photoPost(state: {}, formData: FormData) {
       },
       body: formData,
     })
-    console.log(response.status, response.body)
     if (!response.ok) throw new Error('Email ou usuário já cadastrado.')
   } catch (error: unknown) {
     return apiError(error)
