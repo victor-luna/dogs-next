@@ -1,37 +1,42 @@
-'use client';
+'use client'
 
-import React from 'react';
-import FeedIcon from '@/icons/feed-icon';
-import EstatisticasIcon from '@/icons/estatisticas-icon';
-import AdicionarIcon from '@/icons/adicionar-icon';
-import SairIcon from '@/icons/sair-icon';
-import styles from './conta-header.module.css';
-import useMedia from '@/hooks/use-media';
-import { usePathname } from 'next/navigation';
-import Link from 'next/link';
+import React from 'react'
+import FeedIcon from '@/icons/feed-icon'
+import EstatisticasIcon from '@/icons/estatisticas-icon'
+import AdicionarIcon from '@/icons/adicionar-icon'
+import SairIcon from '@/icons/sair-icon'
+import styles from './conta-header.module.css'
+import useMedia from '@/hooks/use-media'
+import { usePathname } from 'next/navigation'
+import Link from 'next/link'
+import logout from '../../actions/logout'
+import { useUser } from '../../context/user-context'
 
 function getTitle(pathname: string) {
   switch (pathname) {
     case '/conta/postar':
-      return 'Poste Sua Foto';
+      return 'Poste Sua Foto'
     case '/conta/estatisticas':
-      return 'Estatísticas';
+      return 'Estatísticas'
     default:
-      return 'Minha Conta';
+      return 'Minha Conta'
   }
 }
 
 export default function ContaHeader() {
-  const mobile = useMedia('(max-width: 40rem)');
-  const [mobileMenu, setMobileMenu] = React.useState(false);
+  const mobile = useMedia('(max-width: 40rem)')
+  const [mobileMenu, setMobileMenu] = React.useState(false)
 
-  const pathname = usePathname();
+  const pathname = usePathname()
   React.useEffect(() => {
-    setMobileMenu(false);
-  }, [pathname]);
+    setMobileMenu(false)
+  }, [pathname])
 
-  function handleLogout() {
-    // userLogout();
+  const { setUser } = useUser()
+
+  async function handleLogout() {
+    await logout()
+    setUser(null)
   }
 
   return (
@@ -76,5 +81,5 @@ export default function ContaHeader() {
         </button>
       </nav>
     </header>
-  );
+  )
 }
