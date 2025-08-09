@@ -13,12 +13,13 @@ export type Comment = {
 
 export type PhotoData = {
   photo: Photo
-  comment: Comment[]
+  comments: Comment[]
 }
 
 export default async function photoGet(id: string) {
   try {
     const { url } = PHOTO_GET(id)
+
     const response = await fetch(url, {
       next: {
         revalidate: 60,
@@ -31,6 +32,7 @@ export default async function photoGet(id: string) {
     }
 
     const data = (await response.json()) as PhotoData
+
     return { data, ok: true, error: '' }
   } catch (error) {
     return apiError(error)
