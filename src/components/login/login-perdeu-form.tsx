@@ -1,15 +1,15 @@
-'use client';
+'use client'
 
-import { useFormState, useFormStatus } from 'react-dom';
-import Button from '@/components/forms/button';
-import Input from '@/components/forms/input';
-import ErrorMessage from '../helper/error-message';
-import React from 'react';
-import styles from './login-form.module.css';
-import passwordLost from '@/actions/password-lost';
+import { useFormState, useFormStatus } from 'react-dom'
+import Button from '@/components/forms/button'
+import Input from '@/components/forms/input'
+import ErrorMessage from '../helper/error-message'
+import React from 'react'
+import styles from './login-form.module.css'
+import passwordLost from '@/actions/password-lost'
 
 function FormButton() {
-  const { pending } = useFormStatus();
+  const { pending } = useFormStatus()
 
   return (
     <>
@@ -19,7 +19,7 @@ function FormButton() {
         <Button>Enviar Email</Button>
       )}
     </>
-  );
+  )
 }
 
 export default function LoginPerdeuForm() {
@@ -27,13 +27,13 @@ export default function LoginPerdeuForm() {
     ok: false,
     error: '',
     data: null,
-  });
+  })
 
-  const [url, setUrl] = React.useState('');
+  const [url, setUrl] = React.useState('')
 
   React.useEffect(() => {
-    setUrl(window.location.href.replace('perdeu', 'resetar'));
-  }, []);
+    setUrl(window.location.href.replace('perdeu', 'resetar'))
+  }, [])
 
   return (
     <form action={action} className={styles.form}>
@@ -46,5 +46,5 @@ export default function LoginPerdeuForm() {
         <FormButton />
       )}
     </form>
-  );
+  )
 }

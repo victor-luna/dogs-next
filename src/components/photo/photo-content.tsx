@@ -5,9 +5,9 @@ import styles from './photo-content.module.css'
 import PhotoComments from './photo-comments'
 import PhotoDelete from './photo-delete'
 import Link from 'next/link'
-import { useUser } from '../../context/user-context'
+import { useUser } from '@/context/user-context'
 import Image from 'next/image'
-import { PhotoData } from '../../actions/photo-get'
+import { PhotoData } from '@/actions/photo-get'
 
 const PhotoContent = ({
   data,
@@ -17,8 +17,8 @@ const PhotoContent = ({
   single: boolean
 }) => {
   const { user } = useUser()
-
   const { photo, comments } = data
+
   return (
     <div className={`${styles.photo} ${single ? styles.single : ''}`}>
       <div className={styles.img}>
@@ -32,7 +32,6 @@ const PhotoContent = ({
             ) : (
               <Link href={`/perfil/${photo.author}`}>@{photo.author}</Link>
             )}
-
             <span className={styles.visualizacoes}>{photo.acessos}</span>
           </p>
           <h1 className="title">

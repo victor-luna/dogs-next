@@ -1,5 +1,5 @@
+import ContaPhotoPost from '@/components/conta/conta-photo-post'
 import { Metadata } from 'next'
-import ContaPhotoPost from '../../../components/conta/conta-photo-post'
 
 export const runtime = 'edge'
 

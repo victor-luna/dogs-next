@@ -2,7 +2,7 @@
 
 import React from 'react'
 import styles from './photo-delete.module.css'
-import photoDelete from '../../actions/photo-delete'
+import photoDelete from '@/actions/photo-delete'
 
 export default function PhotoDelete({ id }: { id: string }) {
   const [loading, setLoading] = React.useState(false)

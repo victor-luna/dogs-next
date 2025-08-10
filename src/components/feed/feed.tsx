@@ -21,12 +21,11 @@ export default function Feed({
   )
 
   const fetching = React.useRef(false)
-
   function infiniteScroll() {
+    console.log('aconteceu')
     if (fetching.current) return
     fetching.current = true
     setLoading(true)
-
     setTimeout(() => {
       setPage((currentPage) => currentPage + 1)
       fetching.current = false
@@ -36,7 +35,6 @@ export default function Feed({
 
   React.useEffect(() => {
     if (page === 1) return
-
     async function getPagePhotos(page: number) {
       const actionData = await photosGet(
         { page, total: 6, user: 0 },
@@ -61,7 +59,6 @@ export default function Feed({
       window.removeEventListener('scroll', infiniteScroll)
       window.removeEventListener('wheel', infiniteScroll)
     }
-
     return () => {
       window.removeEventListener('scroll', infiniteScroll)
       window.removeEventListener('wheel', infiniteScroll)

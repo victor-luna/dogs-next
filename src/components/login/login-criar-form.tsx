@@ -1,15 +1,15 @@
-'use client';
+'use client'
 
-import { useFormState, useFormStatus } from 'react-dom';
-import Button from '@/components/forms/button';
-import Input from '@/components/forms/input';
-import ErrorMessage from '../helper/error-message';
-import React from 'react';
-import styles from './login-form.module.css';
-import userPost from '@/actions/user-post';
+import { useFormState, useFormStatus } from 'react-dom'
+import Button from '@/components/forms/button'
+import Input from '@/components/forms/input'
+import ErrorMessage from '../helper/error-message'
+import React from 'react'
+import styles from './login-form.module.css'
+import userPost from '@/actions/user-post'
 
 function FormButton() {
-  const { pending } = useFormStatus();
+  const { pending } = useFormStatus()
 
   return (
     <>
@@ -19,7 +19,7 @@ function FormButton() {
         <Button>Cadastrar</Button>
       )}
     </>
-  );
+  )
 }
 
 export default function LoginCriarForm() {
@@ -27,11 +27,11 @@ export default function LoginCriarForm() {
     ok: false,
     error: '',
     data: null,
-  });
+  })
 
   React.useEffect(() => {
-    if (state.ok) window.location.href = '/conta';
-  }, [state.ok]);
+    if (state.ok) window.location.href = '/conta'
+  }, [state.ok])
 
   return (
     <form action={action} className={styles.form}>
@@ -41,5 +41,5 @@ export default function LoginCriarForm() {
       <ErrorMessage error={state.error} />
       <FormButton />
     </form>
-  );
+  )
 }
