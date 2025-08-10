@@ -1,7 +1,7 @@
+import photosGet from '@/actions/photos-get'
+import userGet from '@/actions/user-get'
+import Feed from '@/components/feed/feed'
 import { Metadata } from 'next'
-import Feed from '../../components/feed/feed'
-import photosGet from '../../actions/photos-get'
-import userGet from '../../actions/user-get'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
@@ -23,11 +23,11 @@ export default async function ContaPage() {
             Nenhuma foto encontrada.
           </p>
           <Link
-            href="/conta/postar"
+            href={'/conta/postar'}
             className="button"
             style={{ display: 'inline-block' }}
           >
-            Postar foto
+            Postar Foto
           </Link>
         </div>
       )}

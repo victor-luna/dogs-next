@@ -2,10 +2,10 @@
 
 import { useFormState, useFormStatus } from 'react-dom'
 import styles from './photo-comments-form.module.css'
-import EnviarIcon from '../../icons/enviar-icon'
+import EnviarIcon from '@/icons/enviar-icon'
 import ErrorMessage from '../helper/error-message'
-import { Comment } from '../../actions/photo-get'
-import commentPost from '../../actions/comment-phost'
+import { Comment } from '@/actions/photo-get'
+import commentPost from '@/actions/comment-post'
 import React from 'react'
 
 function FormButton() {

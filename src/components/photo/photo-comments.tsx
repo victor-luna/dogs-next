@@ -3,8 +3,8 @@
 import React from 'react'
 import PhotoCommentsForm from './photo-comments-form'
 import styles from './photo-comments.module.css'
-import { useUser } from '../../context/user-context'
-import { Comment } from '../../actions/photo-get'
+import { useUser } from '@/context/user-context'
+import { Comment } from '@/actions/photo-get'
 
 const PhotoComments = (props: {
   single: boolean

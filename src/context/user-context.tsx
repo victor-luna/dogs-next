@@ -1,8 +1,8 @@
 'use client'
 
+import logout from '@/actions/logout'
+import validateToken from '@/actions/validate-token'
 import React from 'react'
-import logout from '../actions/logout'
-import validateToken from '../actions/validate-token'
 
 type User = {
   id: number
@@ -42,6 +42,7 @@ export function UserContextProvider({
     }
     if (userState) validate()
   }, [userState])
+
   return (
     <UserContext.Provider value={{ user: userState, setUser }}>
       {children}
